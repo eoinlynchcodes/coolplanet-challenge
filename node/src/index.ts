@@ -12,25 +12,21 @@ app.use(
   })
 );
 
-app.get("/", (req: Request, res: Response) => {
-  res.json({ users });
-});
-
 app.get("/users", (req: Request, res: Response) => {
   res.json({ users });
 });
 
-app.get("/user/:id", (req: Request, res: Response) => {
+app.get("/users/:id", (req: Request, res: Response) => {
   const userId = Number(req.params.id);
   const user = users.filter((userFromDb) => userFromDb.id === userId);
   const userObject = Object.assign({}, ...user);
   if (user.length > 0) {
     res.send(userObject);
   } else {
-    res.status(404).send("No user has the ID that you requested.");
+    res.status(404).send(`Sorry but there are no users with the ID ${userId}.`);
   }
 });
 
-app.listen(port, (): void => {
+app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
