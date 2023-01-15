@@ -41,10 +41,9 @@ export default function Home() {
         {users?.length === 0 && <Text>Uh oh! There seems to be no users?</Text>}
         {users?.map((item) => {
           return (
-            <Link to={`/users/${item.id}`}>
+            <Link key={item.id} to={`/users/${item.id}`}>
               <Card
                 _hover={{ bgColor: "#ecf7f9" }}
-                key={item.id}
                 p={5}
                 size="lg"
               >
