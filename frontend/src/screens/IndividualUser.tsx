@@ -86,14 +86,18 @@ export default function IndividualUser() {
                 </Badge>
               )}
             </Flex>
+            
             <Divider my={4} />
-            <Flex my={10} justify="space-evenly">
+
+            <Flex my={10} justify="space-evenly" align="flex-start">
               <Box>
                 <Box>
                   <Heading size="md">Date of Birth:</Heading>
                   <Text my={2}>{user.dob}</Text>
                 </Box>
+                
                 <Divider my={4} />
+
                 <Box my={2}>
                   <Heading size="md">Skills:</Heading>
                   <List my={2} spacing={2}>
@@ -110,7 +114,7 @@ export default function IndividualUser() {
               </Box>
 
               <Box>
-                <Box my={2}>
+                <Box>
                   <Heading size="md">Company name:</Heading>
                   <Text my={2}>{user?.company?.name}</Text>
                 </Box>
@@ -120,6 +124,7 @@ export default function IndividualUser() {
                   <Text my={2}>{user?.company?.department}</Text>
                 </Box>
               </Box>
+
             </Flex>
           </Box>
         )}
