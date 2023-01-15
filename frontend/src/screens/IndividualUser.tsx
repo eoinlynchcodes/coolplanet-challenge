@@ -35,7 +35,7 @@ export default function IndividualUser() {
           setError(error.response.data);
         }
       });
-  }, [userId]);
+  }, []);
 
   return (
     <Box>

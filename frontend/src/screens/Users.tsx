@@ -15,6 +15,7 @@ import { UserList } from "../interfaces/User";
 
 export default function Home() {
   const [users, setUsers] = useState<UserList>();
+  const [error, setError] = useState<string | null>();
 
   useEffect(() => {
     axios
@@ -23,7 +24,7 @@ export default function Home() {
         setUsers(response.data.users);
       })
       .catch((error) => {
-        console.log("error: ", error);
+        setError(error.response);
       });
   }, []);
 
@@ -31,6 +32,7 @@ export default function Home() {
     <Box>
       <Heading m={5}>Users</Heading>
       <Stack m={5}>
+        {error && <Text>{error}</Text>}
         {users === undefined && (
           <Flex minH="100vh" justify="center" align="center">
             <Spinner color="green" size="xl" />
